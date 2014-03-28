@@ -4,8 +4,7 @@
 #    folder   #
 ###############
 /WebRoot/META-INF/
-
-
+.settings
 
 ###############
 #  fixed file #
