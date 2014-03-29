@@ -27,4 +27,14 @@
 				</prop>
 			</props>
 		</property>
+	</bean>
+	<bean id="BlogDAO" class="dao.BlogDAOimpl">
+		<property name="sessionFactory">
+			<ref bean="sessionFactory" />
+		</property>
+	</bean>
+	<bean id="ReplyDAO" class="dao.ReplyDAOimpl">
+		<property name="sessionFactory">
+			<ref bean="sessionFactory" />
+		</property>
 	</bean></beans>
