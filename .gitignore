@@ -3,15 +3,13 @@
 ###############
 #    folder   #
 ###############
-/WebRoot/META-INF/
-.settings
+Blog/
 
 ###############
 #  fixed file #
 ###############
 *.class
 *.jar
-*.classpath
 
 ###############
 #  temp file  #
