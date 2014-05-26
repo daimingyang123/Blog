@@ -15,26 +15,60 @@
 		<property name="username" value="root"></property>
 		<property name="password" value="1234"></property>
 	</bean>
+	
 	<bean id="sessionFactory"
 		class="org.springframework.orm.hibernate3.LocalSessionFactoryBean">
-		<property name="dataSource">
-			<ref bean="dataSource" />
-		</property>
+		<property name="dataSource" ref ="dataSource"/>
 		<property name="hibernateProperties">
 			<props>
 				<prop key="hibernate.dialect">
 					org.hibernate.dialect.MySQLDialect
 				</prop>
+				<!-- 是否根据需要每次自动创建数据库 -->  
+	            <prop key="hibernate.hbm2ddl.auto">update</prop>  
+	            <!-- 显示Hibernate持久化操作所生成的SQL -->  
+	            <prop key="hibernate.show_sql">true</prop>  
+	            <!-- 将SQL脚本进行格式化后再输出 -->  
+	            <prop key="hibernate.format_sql">true</prop>
 			</props>
 		</property>
-	</bean>
-	<bean id="BlogDAO" class="dao.BlogDAOimpl">
-		<property name="sessionFactory">
-			<ref bean="sessionFactory" />
+		<property name="mappingResources">
+			<list>
+				<value>entity/Blog.hbm.xml</value>
+			</list>
 		</property>
 	</bean>
-	<bean id="ReplyDAO" class="dao.ReplyDAOimpl">
-		<property name="sessionFactory">
-			<ref bean="sessionFactory" />
+		
+		<!--定义Hibernate的事务管理器HibernateTransactionManager -->
+	<bean id="transactionManager"
+		class="org.springframework.orm.hibernate3.HibernateTransactionManager">
+		<!-- 依赖注入上面定义的sessionFactory -->
+		<property name="sessionFactory" ref="sessionFactory" />
+	</bean>
+	
+	<!-- 装配HibernateTemplate实例 -->
+	<bean id="hibernateTemplate" class="org.springframework.orm.hibernate3.HibernateTemplate">
+		<constructor-arg ref="sessionFactory" />
+	</bean>
+	
+	<bean id="blogDAO" class="dao.BlogDAO">
+	<constructor-arg>
+		<ref bean="hibernateTemplate" />
+	</constructor-arg>
+	</bean>
+	
+	<bean id ="blogService" class="service.BlogService">
+	<constructor-arg>
+		<ref bean="blogDAO"/>
+	</constructor-arg>
+	</bean>
+	
+	<bean id="serviceManager" class="service.ServiceManager">
+		<property name="blogServiceInter">
+			<ref bean="blogService"/>
 		</property>
-	</bean></beans>
+	</bean>
+	
+	
+	
+	</beans>

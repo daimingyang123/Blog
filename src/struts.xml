@@ -2,4 +2,28 @@
 <!DOCTYPE struts PUBLIC "-//Apache Software Foundation//DTD Struts Configuration 2.1//EN" "http://struts.apache.org/dtds/struts-2.1.dtd">
 <struts>
 
+	<package name="default" namespace="/" extends="struts-default">  
+		
+		<action name="admin"  class="action.AdminAction">
+			<result name="success">/index.jsp</result> 
+			<result name="input">/admin.jsp</result>
+		</action>
+		<action name="main"  class="action.GetBlogsAction">
+			<result name="success">/transit.jsp</result> 
+			<result name="input">/error.jsp</result>
+		</action>
+		<action name="new"  class="action.NewBlogAction">
+			<result name="success">/index.jsp</result> 
+			<result name="input">/error.jsp</result>
+		</action>
+		<action name="delete"  class="action.DeleteBlogAction">
+			<result name="success">/index.jsp</result> 
+			<result name="input">/error.jsp</result>
+		</action>
+		<action name="get"  class="action.GetBlogAction">
+			<result name="success">/viewblog.jsp</result> 
+			<result name="input">/error.jsp</result>
+		</action>
+
+	</package>
 </struts>    

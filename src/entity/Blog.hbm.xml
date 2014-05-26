@@ -8,28 +8,22 @@
     <class name="entity.Blog" table="t_blogs" catalog="Blog">
         <id name="id" type="java.lang.Integer">
             <column name="id" />
-            <generator class="increment"></generator>
+            <generator class="native"></generator>
         </id>
-        <property name="userId" type="java.lang.Integer">
-            <column name="user_id" not-null="true" />
-        </property>
         <property name="title" type="java.lang.String">
-            <column name="title" length="50" not-null="true" />
+            <column name="title" length="50" not-null="false" />
         </property>
         <property name="path" type="java.lang.String">
-            <column name="path" length="30" not-null="true" />
+            <column name="path" length="30" not-null="false" />
         </property>
-        <property name="abstract_" type="java.lang.String">
-            <column name="abstract" length="1000" />
-        </property>
-        <property name="replyCount" type="java.lang.Integer">
-            <column name="reply_count" not-null="true" />
-        </property>
-        <property name="viewCount" type="java.lang.Integer">
-            <column name="view_count" not-null="true" />
+        <property name="blogAbstract" type="java.lang.String">
+            <column name="blogAbstract" length="1000" not-null="false" />
         </property>
         <property name="postDate" type="java.sql.Timestamp">
-            <column name="post_date" length="19" not-null="true" />
+            <column name="postDate" length="19" not-null="false" />
+        </property>
+        <property name="content" type="java.lang.String">
+            <column name="content" length="1000" not-null="false" />
         </property>
     </class>
 </hibernate-mapping>

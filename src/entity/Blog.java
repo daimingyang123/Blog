@@ -1,127 +1,86 @@
 package entity;
 
-import java.sql.Timestamp;
+import java.util.Date;
+
+public class Blog {
+
+	// Fields
+
+	private int id;
+	private int viewCount;
+	private String title;
+	private String content;
+	private String path;
+	private String blogAbstract;
+	private String fullPath;
+	public int getViewCount() {
+		return viewCount;
+	}
+
+	public void setViewCount(int viewCount) {
+		this.viewCount = viewCount;
+	}
+
+	public String getFullPath() {
+		return fullPath;
+	}
+
+	public void setFullPath(String fullPath) {
+		this.fullPath = fullPath;
+	}
 
 
-/**
- * Blog entity. @author MyEclipse Persistence Tools
- */
-
-public class Blog  implements java.io.Serializable {
+	private java.util.Date postDate;
 
 
-    // Fields    
+	public int getId() {
+		return this.id;
+	}
 
-     private Integer id;
-     private Integer userId;
-     private String title;
-     private String path;
-     private String abstract_;
-     private Integer replyCount;
-     private Integer viewCount;
-     private Timestamp postDate;
+	public void setId(int id) {
+		this.id = id;
+	}
 
+	public String getTitle() {
+		return this.title;
+	}
 
-    // Constructors
+	public void setTitle(String title) {
+		this.title = title;
+	}
+	
+	public String getContent() {
+		return content;
+	}
 
-    /** default constructor */
-    public Blog() {
-    }
+	public void setContent(String content) {
+		this.content = content;
+	}
 
-	/** minimal constructor */
-    public Blog(Integer userId, String title, String path, Integer replyCount, Integer viewCount, Timestamp postDate) {
-        this.userId = userId;
-        this.title = title;
-        this.path = path;
-        this.replyCount = replyCount;
-        this.viewCount = viewCount;
-        this.postDate = postDate;
-    }
-    
-    /** full constructor */
-    public Blog(Integer userId, String title, String path, String abstract_, Integer replyCount, Integer viewCount, Timestamp postDate) {
-        this.userId = userId;
-        this.title = title;
-        this.path = path;
-        this.abstract_ = abstract_;
-        this.replyCount = replyCount;
-        this.viewCount = viewCount;
-        this.postDate = postDate;
-    }
+	public String getPath() {
+		return this.path;
+	}
 
-   
-    // Property accessors
-
-    public Integer getId() {
-        return this.id;
-    }
-    
-    public void setId(Integer id) {
-        this.id = id;
-    }
-
-    public Integer getUserId() {
-        return this.userId;
-    }
-    
-    public void setUserId(Integer userId) {
-        this.userId = userId;
-    }
-
-    public String getTitle() {
-        return this.title;
-    }
-    
-    public void setTitle(String title) {
-        this.title = title;
-    }
-
-    public String getPath() {
-        return this.path;
-    }
-    
-    public void setPath(String path) {
-        this.path = path;
-    }
-
-    public String getAbstract_() {
-        return this.abstract_;
-    }
-    
-    public void setAbstract_(String abstract_) {
-        this.abstract_ = abstract_;
-    }
-
-    public Integer getReplyCount() {
-        return this.replyCount;
-    }
-    
-    public void setReplyCount(Integer replyCount) {
-        this.replyCount = replyCount;
-    }
-
-    public Integer getViewCount() {
-        return this.viewCount;
-    }
-    
-    public void setViewCount(Integer viewCount) {
-        this.viewCount = viewCount;
-    }
-
-    public Timestamp getPostDate() {
-        return this.postDate;
-    }
-    
-    public void setPostDate(Timestamp postDate) {
-        this.postDate = postDate;
-    }
-   
+	public void setPath(String path) {
+		this.path = path;
+	}
 
 
+	public String getBlogAbstract() {
+		return blogAbstract;
+	}
 
+	public void setBlogAbstract(String blogAbstract) {
+		this.blogAbstract = blogAbstract;
+	}
 
+	public Date getPostDate() {
+		return this.postDate;
+	}
 
-
+	public void setPostDate(Date now) {
+		this.postDate = now;
+	}
 
 
 }
